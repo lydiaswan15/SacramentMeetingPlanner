@@ -37,7 +37,7 @@
                 <input asp-for="SacramentHymn" class="form-control" />
                 <span asp-validation-for="SacramentHymn" class="text-danger"></span>
             </div>
-
+            <label for="speakerForm" class="control-label">Speakers</label>
             <div id="speakerForm">
 
             </div>
@@ -75,7 +75,6 @@
     <script>
         const speakerFormItem = `
         <div class="form-group border border-secondary padding">
-            <h4>Speaker</h4>
             <label class="control-label" for="speakerName">Name</label>
             <input type="text" name="speakerName" class="form-control"/>
             <label class="control-label" for="topic">Topic</label>
