@@ -50,6 +50,7 @@ namespace SacramentMeetingPlanner.Controllers
         // GET: SacramentPlans/Create
         public IActionResult Create()
         {
+            ViewData["HymnId"] = new SelectList(_context.Set<Hymn>(), "HymnId", "HymnName");
             return View();
         }
 
@@ -58,7 +59,7 @@ namespace SacramentMeetingPlanner.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("SacramentPlanId,Date,ConductingLeader,OpenningHymn,ClosingHymn,SacramentHymn,MusicNumber,OpenningPrayer,ClosingPrayer, SpeakerName, Topic")]
+        public async Task<IActionResult> Create([Bind("SacramentPlanId,Date,ConductingLeader,OpeningHymnId,ClosingHymn,SacramentHymn,MusicNumber,OpeningPrayer,ClosingPrayer, SpeakerName, Topic")]
          SacramentPlan sacramentPlan, string[] SpeakerName, string[] Topic)
         {
             sacramentPlan.Speakers = new List<Speaker>();

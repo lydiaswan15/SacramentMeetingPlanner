@@ -12,14 +12,15 @@ namespace SacramentMeeting.Models
     {
         public int SacramentPlanId { get; set; }
 
+        [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime Date { get; set; }
         [Display(Name = "Conducting")]
         public string ConductingLeader { get; set; }
         [Display(Name = "Opening Hymn")]
 
-        public int HymnId { get; set; }
-        public Hymn OpenningHymn { get; set; }
+        public int OpeningHymnId { get; set; }
+        public Hymn OpeningHymn { get; set; }
         [Display(Name = "Closing Hymn")]
         public string ClosingHymn { get; set; }
         [Display(Name = "Sacrament Hymn")]
@@ -27,7 +28,7 @@ namespace SacramentMeeting.Models
         [Display(Name = "Intermediate Hymn")]
         public string? MusicNumber { get; set; }
         [Display(Name = "Opening Prayer")]
-        public string OpenningPrayer { get; set; }
+        public string OpeningPrayer { get; set; }
         [Display(Name = "Closing Prayer")]
         public string ClosingPrayer { get; set; }
 
