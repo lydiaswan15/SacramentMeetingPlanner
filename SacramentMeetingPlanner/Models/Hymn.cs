@@ -1,6 +1,6 @@
 using System;
 
-namespace SacramentMeetingPlanner.Models
+namespace SacramentMeeting.Models
 {
     public class Hymn
     {

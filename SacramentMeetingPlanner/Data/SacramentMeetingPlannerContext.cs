@@ -16,5 +16,7 @@ public class SacramentMeetingPlannerContext : DbContext
 
     public DbSet<SacramentMeeting.Models.Speaker> Speaker { get; set; }
 
+    public DbSet<SacramentMeeting.Models.Hymn> Hymn { get; set; }
+
 
 }

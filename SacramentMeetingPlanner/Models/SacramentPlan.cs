@@ -17,7 +17,9 @@ namespace SacramentMeeting.Models
         [Display(Name = "Conducting")]
         public string ConductingLeader { get; set; }
         [Display(Name = "Opening Hymn")]
-        public string OpenningHymn { get; set; }
+
+        public int HymnId { get; set; }
+        public Hymn OpenningHymn { get; set; }
         [Display(Name = "Closing Hymn")]
         public string ClosingHymn { get; set; }
         [Display(Name = "Sacrament Hymn")]

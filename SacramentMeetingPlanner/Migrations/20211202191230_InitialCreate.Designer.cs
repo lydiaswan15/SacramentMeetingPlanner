@@ -2,35 +2,20 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace SacramentMeetingPlanner.Migrations
 {
     [DbContext(typeof(SacramentMeetingPlannerContext))]
-    partial class SacramentMeetingPlannerContextModelSnapshot : ModelSnapshot
+    [Migration("20211202191230_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.0");
-
-            modelBuilder.Entity("SacramentMeeting.Models.Hymn", b =>
-                {
-                    b.Property<int>("HymnId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("HymnName")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("HymnNumber")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("HymnId");
-
-                    b.ToTable("Hymn");
-                });
 
             modelBuilder.Entity("SacramentMeeting.Models.SacramentPlan", b =>
                 {
@@ -50,10 +35,10 @@ namespace SacramentMeetingPlanner.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("HymnId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("MusicNumber")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("OpenningHymn")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("OpenningPrayer")
@@ -63,8 +48,6 @@ namespace SacramentMeetingPlanner.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("SacramentPlanId");
-
-                    b.HasIndex("HymnId");
 
                     b.ToTable("SacramentPlan");
                 });
@@ -89,17 +72,6 @@ namespace SacramentMeetingPlanner.Migrations
                     b.HasIndex("SacramentPlanId");
 
                     b.ToTable("Speaker");
-                });
-
-            modelBuilder.Entity("SacramentMeeting.Models.SacramentPlan", b =>
-                {
-                    b.HasOne("SacramentMeeting.Models.Hymn", "OpenningHymn")
-                        .WithMany()
-                        .HasForeignKey("HymnId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("OpenningHymn");
                 });
 
             modelBuilder.Entity("SacramentMeeting.Models.Speaker", b =>
