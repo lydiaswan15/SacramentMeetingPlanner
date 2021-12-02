@@ -32,12 +32,20 @@ namespace SacramentMeetingPlanner.Controllers
         // GET: SacramentPlans/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+
+            // get speakers
+            // var speakers = await _context.Speaker
+            //     .Include(s => s.Name)
+            //     .Include(s => s.Topic)
+            //     .Where(SacramentPlanId = id);
+
+            // if (id == null)
+            // {
+            //     return NotFound();
+            // }
 
             var sacramentPlan = await _context.SacramentPlan
+                .Include(s => s.Speakers)
                 .FirstOrDefaultAsync(m => m.SacramentPlanId == id);
             if (sacramentPlan == null)
             {

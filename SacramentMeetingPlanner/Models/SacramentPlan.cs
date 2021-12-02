@@ -10,8 +10,9 @@ namespace SacramentMeeting.Models
 {
     public class SacramentPlan
     {
-        public int SacramentPlanId { get; set; }
-
+        public int SacramentPlanId
+        { get; set; }
+        [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime Date { get; set; }
         [Display(Name = "Conducting")]
