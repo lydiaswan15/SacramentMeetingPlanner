@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace SacramentMeetingPlanner.Migrations
 {
     [DbContext(typeof(SacramentMeetingPlannerContext))]
-    [Migration("20211130215403_InitialCreate")]
+    [Migration("20211202190900_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -45,9 +45,6 @@ namespace SacramentMeetingPlanner.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("SacramentHymn")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("SpeakerSubject")
                         .HasColumnType("TEXT");
 
                     b.HasKey("SacramentPlanId");
