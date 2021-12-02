@@ -30,7 +30,6 @@ namespace SacramentMeeting.Models
         public string ClosingPrayer { get; set; }
 
         public ICollection<Speaker> Speakers { get; set; }
-        public string SpeakerSubject { get; set; }
 
     }
 }
