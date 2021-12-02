@@ -4,81 +4,98 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+    <dl class="program-container">
+            <h2 class="program-center mb-5">
+                @Html.DisplayFor(model => model.Date)
+            </h2>
+        <div class="program-row">
+            <dt class="left">
+                @Html.DisplayNameFor(model => model.ConductingLeader)
+            </dt>
+            <dd class="right">
+                @Html.DisplayFor(model => model.ConductingLeader)
+            </dd>
+        </div>
 
-<div>
-    <h4>Sacrament Plan</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Date)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Date)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ConductingLeader)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ConductingLeader)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.OpeningHymn)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.OpeningHymn)
-        </dd>
-                <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.OpeningPrayer)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.OpeningPrayer)
-        </dd>
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.SacramentHymn)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.SacramentHymn)
-        </dd>
+        <div class="program-row">
+            <dt class=left">
+                @Html.DisplayNameFor(model => model.OpeningHymn)
+            </dt>
+            <dd class="right">
+                @Html.DisplayFor(model => model.OpeningHymn)
+            </dd>
+        </div>
+            <p class="hymn-name">hymn name</p>
+        <div class="program-row">
+            <dt class="left">
+                @Html.DisplayNameFor(model => model.OpeningPrayer)
+            </dt>
+            <dd class="right">
+                @Html.DisplayFor(model => model.OpeningPrayer)
+            </dd>
+        </div>
+        <p class="program-center">Ward and Stake Business</p>
+        <div class="program-row">
+            <dt class="left">
+                @Html.DisplayNameFor(model => model.SacramentHymn)
+            </dt>
+            <dd class="right">
+                @Html.DisplayFor(model => model.SacramentHymn)
+            </dd>
+        </div>
+        <p class="hymn-name">hymn name</p>
+        <p class="program-center">Administration of the Sacrament</p>
+        <div class="program-row">
+            <dt class="left">Talks</dt>
+        </div>
 
-        @* Add speakers here *@
-        <h3>Speakers</h3>
         @foreach (var item in Model.Speakers)
         {
-            <dt class = "col-sm-2">
-            @Html.DisplayNameFor(modelItem  => item.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(modelItem => item.Name)
-        </dd>
+        <div class="program-row">
+            <dt class="left topic-name">
+                @Html.DisplayFor(modelItem => item.Topic)
+            </dt>
+            <dd class="right">
+                @Html.DisplayFor(modelItem => item.Name)
+            </dd>
+        </div>
         }
-        <dt class = "col-sm-2">
+        @* Check if intermediate hymn exists *@
+        <div class="program-row">
+            <dt class="left">
 
-            @Html.DisplayNameFor(model => model.MusicNumber)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.MusicNumber)
-        </dd>
-        
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ClosingHymn)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ClosingHymn)
-
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ClosingPrayer)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ClosingPrayer)
-        </dd>
-
+                @Html.DisplayNameFor(model => model.MusicNumber)
+            </dt>
+            <dd class="right">
+                @Html.DisplayFor(model => model.MusicNumber)
+            </dd>
+        </div>
+        <p class="hymn-name">hymn name</p>
+        <div class="program-row">
+            <dt class="left">
+                @Html.DisplayNameFor(model => model.ClosingHymn)
+            </dt>
+            <dd class="right">
+                @Html.DisplayFor(model => model.ClosingHymn)
+        </div>
+        <p class="hymn-name">hymn name</p>
+        <div class="program-row">
+            <dt class="left">
+                @Html.DisplayNameFor(model => model.ClosingPrayer)
+            </dt>
+            <dd class="right">
+                @Html.DisplayFor(model => model.ClosingPrayer)
+            </dd>
+        </div>
 
     </dl>
 </div>
-<div>
+<div class="program-center mt-6">
     <a asp-action="Edit" asp-route-id="@Model.SacramentPlanId">Edit</a> |
-    <a asp-action="Delete" asp-route-id="@Model.SacramentPlanId">Delete</a> | 
+    <a asp-action="Delete" asp-route-id="@Model.SacramentPlanId">Delete</a> |
     <a asp-action="Index">Back to List</a>
 </div>
+
+@section Scripts {
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

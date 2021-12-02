@@ -1,5 +1,59 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
+.program-container {
+  max-width: 750px;
+  padding: 10px;
+  font-size: 1.2em;
+  margin: 0 auto;
+}
+.program-row {
+  display: flex;
+  line-height: 2em;
+  flex: 1;
+}
+
+.program-row .left{
+  order: 1;
+}
+
+.program-row .right {
+  order: 3;
+}
+
+.program-row::after {
+  content: "";
+  margin: 0 4px;
+  background: radial-gradient(circle at 50% 50%, black 12%, transparent 15%);
+  background-size: 1em 1em;
+  background-position: 0 0.5em;
+  background-repeat: repeat-x;
+  flex-grow: 1;
+  order: 2;
+}
+
+.program-center, .hymn-name{
+  text-align: center;
+}
+
+.hymn-name {
+  font-style: italic;
+  font-size: 1em;
+}
+
+.hymn-name::before {
+  content: "\"";
+
+}
+
+.hymn-name::after {
+  content: "\"";
+}
+
+.topic-name {
+  font-weight: normal;
+  font-style: italic;
+  padding-left: 30px;
+}
 
 .padding{
   padding: 10px;
