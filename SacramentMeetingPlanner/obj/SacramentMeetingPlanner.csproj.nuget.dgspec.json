@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/4cibe/Desktop/School/fall2021/CIT365-.NET/week12/SacramentMeetingPlanner/SacramentMeetingPlanner/SacramentMeetingPlanner.csproj": {}
+    "/Users/lydiaswanson/Desktop/SacramentMeetingPlanner/SacramentMeetingPlanner/SacramentMeetingPlanner.csproj": {}
   },
   "projects": {
-    "/Users/4cibe/Desktop/School/fall2021/CIT365-.NET/week12/SacramentMeetingPlanner/SacramentMeetingPlanner/SacramentMeetingPlanner.csproj": {
+    "/Users/lydiaswanson/Desktop/SacramentMeetingPlanner/SacramentMeetingPlanner/SacramentMeetingPlanner.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/4cibe/Desktop/School/fall2021/CIT365-.NET/week12/SacramentMeetingPlanner/SacramentMeetingPlanner/SacramentMeetingPlanner.csproj",
+        "projectUniqueName": "/Users/lydiaswanson/Desktop/SacramentMeetingPlanner/SacramentMeetingPlanner/SacramentMeetingPlanner.csproj",
         "projectName": "SacramentMeetingPlanner",
-        "projectPath": "/Users/4cibe/Desktop/School/fall2021/CIT365-.NET/week12/SacramentMeetingPlanner/SacramentMeetingPlanner/SacramentMeetingPlanner.csproj",
-        "packagesPath": "/Users/4cibe/.nuget/packages/",
-        "outputPath": "/Users/4cibe/Desktop/School/fall2021/CIT365-.NET/week12/SacramentMeetingPlanner/SacramentMeetingPlanner/obj/",
+        "projectPath": "/Users/lydiaswanson/Desktop/SacramentMeetingPlanner/SacramentMeetingPlanner/SacramentMeetingPlanner.csproj",
+        "packagesPath": "/Users/lydiaswanson/.nuget/packages/",
+        "outputPath": "/Users/lydiaswanson/Desktop/SacramentMeetingPlanner/SacramentMeetingPlanner/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/4cibe/.nuget/NuGet/NuGet.Config"
+          "/Users/lydiaswanson/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -75,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.402/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.403/RuntimeIdentifierGraph.json"
         }
       }
     }

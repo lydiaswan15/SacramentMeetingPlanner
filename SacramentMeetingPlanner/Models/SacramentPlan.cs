@@ -15,8 +15,11 @@ namespace SacramentMeeting.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:D}", ApplyFormatInEditMode = false)]
         public DateTime Date { get; set; }
+
+
         [Display(Name = "Conducting")]
-        public string ConductingLeader { get; set; }
+        public int BishopricMemberId { get; set; }
+        public BishopricMember BishopricMember { get; set; }
         [Display(Name = "Opening Hymn")]
 
         public int OpeningHymnId { get; set; }
