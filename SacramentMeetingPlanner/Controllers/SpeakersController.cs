@@ -50,9 +50,10 @@ namespace SacramentMeetingPlanner.Controllers
         public IActionResult Create()
         {
             var sacramentMeetingPlannerContext = _context.Speaker
-            .Include(s => s.SacramentPlan);
+            .Include(s => s.SacramentPlan)
+            .ThenInclude(s => s.Date);
 
-            ViewData["SacramentPlanId"] = new SelectList(_context.SacramentPlan, "SacramentPlanId", "SacramentPlanId");
+            ViewData["SacramentPlanId"] = new SelectList(_context.SacramentPlan, "SacramentPlanId", "Date");
             return View();
         }
 

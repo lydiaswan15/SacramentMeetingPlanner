@@ -42,7 +42,8 @@
 
             </div>
 
-            <button type="button" id="add-speaker-btn" class=" btn btn-secondary form-control mb-2">+ Add Speaker</button>
+            <button type="button" id="add-speaker-btn" class=" btn btn-secondary form-control mb-2">+ Add
+                Speaker</button>
 
             <div class="form-group">
                 <label asp-for="ClosingHymn" class="control-label"></label>
@@ -62,6 +63,7 @@
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
+
         </form>
     </div>
 </div>
@@ -71,20 +73,20 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <script>
-        const speakerFormItem = `
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<script>
+    const speakerFormItem = `
         <div class="form-group border border-secondary padding">
-            <label class="control-label" for="speakerName">Name</label>
+            <label class="control-label" asp-for="SpeakerName">Name</label>
             <input type="text" name="speakerName" class="form-control"/>
             <label class="control-label" for="topic">Topic</label>
             <input type="text" name="topic" class="form-control"/>
         </div>
         `
 
-        document.querySelector('#add-speaker-btn').addEventListener('click', (e) => {
-            e.preventDefault();
-            document.querySelector('#speakerForm').innerHTML += speakerFormItem;
-        })
-    </script>
+    document.querySelector('#add-speaker-btn').addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelector('#speakerForm').innerHTML += speakerFormItem;
+    })
+</script>
 }
