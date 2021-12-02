@@ -22,9 +22,12 @@ namespace SacramentMeeting.Models
         public int OpeningHymnId { get; set; }
         public Hymn OpeningHymn { get; set; }
         [Display(Name = "Closing Hymn")]
-        public string ClosingHymn { get; set; }
+        public int ClosingHymnId { get; set; }
+        public Hymn ClosingHymn { get; set; }
         [Display(Name = "Sacrament Hymn")]
-        public string SacramentHymn { get; set; }
+
+        public int SacramentHymnId { get; set; }
+        public Hymn SacramentHymn { get; set; }
         [Display(Name = "Intermediate Hymn")]
         public string? MusicNumber { get; set; }
         [Display(Name = "Opening Prayer")]

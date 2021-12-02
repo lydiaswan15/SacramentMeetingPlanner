@@ -33,8 +33,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="SacramentHymn" class="control-label"></label>
-                <input asp-for="SacramentHymn" class="form-control" />
-                <span asp-validation-for="SacramentHymn" class="text-danger"></span>
+                <select asp-for="SacramentHymnId" class="form-control" asp-items="ViewBag.HymnId"></select>
             </div>
             <label for="speakerForm" class="control-label">Speakers</label>
             <div id="speakerForm">
@@ -46,8 +45,7 @@
 
             <div class="form-group">
                 <label asp-for="ClosingHymn" class="control-label"></label>
-                <input asp-for="ClosingHymn" class="form-control" />
-                <span asp-validation-for="ClosingHymn" class="text-danger"></span>
+                <select asp-for="ClosingHymnId" class="form-control" asp-items="ViewBag.HymnId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="MusicNumber" class="control-label"></label>
