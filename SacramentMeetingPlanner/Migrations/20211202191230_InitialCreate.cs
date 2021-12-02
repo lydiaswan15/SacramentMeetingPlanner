@@ -20,8 +20,7 @@ namespace SacramentMeetingPlanner.Migrations
                     SacramentHymn = table.Column<string>(type: "TEXT", nullable: true),
                     MusicNumber = table.Column<string>(type: "TEXT", nullable: true),
                     OpenningPrayer = table.Column<string>(type: "TEXT", nullable: true),
-                    ClosingPrayer = table.Column<string>(type: "TEXT", nullable: true),
-                    SpeakerSubject = table.Column<string>(type: "TEXT", nullable: true)
+                    ClosingPrayer = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {

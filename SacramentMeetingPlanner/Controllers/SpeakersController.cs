@@ -53,7 +53,7 @@ namespace SacramentMeetingPlanner.Controllers
             .Include(s => s.SacramentPlan)
             .ThenInclude(s => s.Date);
 
-            ViewData["SacramentPlanId"] = new SelectList(_context.SacramentPlan, "SacramentPlanId", "Date");
+            ViewData["SacramentPlanId"] = new SelectList(_context.SacramentPlan, "SacramentPlanId", "SacramentPlanId");
             return View();
         }
 

@@ -2,32 +2,20 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace SacramentMeetingPlanner.Migrations
 {
     [DbContext(typeof(SacramentMeetingPlannerContext))]
-    partial class SacramentMeetingPlannerContextModelSnapshot : ModelSnapshot
+    [Migration("20211202203831_UpdatingHymnsToModel")]
+    partial class UpdatingHymnsToModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.0");
-
-            modelBuilder.Entity("SacramentMeeting.Models.BishopricMember", b =>
-                {
-                    b.Property<int>("BishopricMemberId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("BishopricMemberName")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("BishopricMemberId");
-
-                    b.ToTable("BishopricMember");
-                });
 
             modelBuilder.Entity("SacramentMeeting.Models.Hymn", b =>
                 {

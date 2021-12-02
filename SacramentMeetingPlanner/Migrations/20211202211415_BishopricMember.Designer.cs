@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace SacramentMeetingPlanner.Migrations
 {
     [DbContext(typeof(SacramentMeetingPlannerContext))]
-    [Migration("20211130224208_Speakers")]
-    partial class Speakers
+    [Migration("20211202211415_BishopricMember")]
+    partial class BishopricMember
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -17,14 +17,45 @@ namespace SacramentMeetingPlanner.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.0");
 
+            modelBuilder.Entity("SacramentMeeting.Models.BishopricMember", b =>
+                {
+                    b.Property<int>("BishopricMemberId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("BishopricMemberName")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("BishopricMemberId");
+
+                    b.ToTable("BishopricMember");
+                });
+
+            modelBuilder.Entity("SacramentMeeting.Models.Hymn", b =>
+                {
+                    b.Property<int>("HymnId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("HymnName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("HymnNumber")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("HymnId");
+
+                    b.ToTable("Hymn");
+                });
+
             modelBuilder.Entity("SacramentMeeting.Models.SacramentPlan", b =>
                 {
                     b.Property<int>("SacramentPlanId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("ClosingHymn")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("ClosingHymnId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("ClosingPrayer")
                         .HasColumnType("TEXT");
@@ -38,19 +69,22 @@ namespace SacramentMeetingPlanner.Migrations
                     b.Property<string>("MusicNumber")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("OpenningHymn")
+                    b.Property<int>("OpeningHymnId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("OpeningPrayer")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("OpenningPrayer")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("SacramentHymn")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("SpeakerSubject")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("SacramentHymnId")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("SacramentPlanId");
+
+                    b.HasIndex("ClosingHymnId");
+
+                    b.HasIndex("OpeningHymnId");
+
+                    b.HasIndex("SacramentHymnId");
 
                     b.ToTable("SacramentPlan");
                 });
@@ -75,6 +109,33 @@ namespace SacramentMeetingPlanner.Migrations
                     b.HasIndex("SacramentPlanId");
 
                     b.ToTable("Speaker");
+                });
+
+            modelBuilder.Entity("SacramentMeeting.Models.SacramentPlan", b =>
+                {
+                    b.HasOne("SacramentMeeting.Models.Hymn", "ClosingHymn")
+                        .WithMany()
+                        .HasForeignKey("ClosingHymnId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SacramentMeeting.Models.Hymn", "OpeningHymn")
+                        .WithMany()
+                        .HasForeignKey("OpeningHymnId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SacramentMeeting.Models.Hymn", "SacramentHymn")
+                        .WithMany()
+                        .HasForeignKey("SacramentHymnId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ClosingHymn");
+
+                    b.Navigation("OpeningHymn");
+
+                    b.Navigation("SacramentHymn");
                 });
 
             modelBuilder.Entity("SacramentMeeting.Models.Speaker", b =>

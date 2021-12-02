@@ -2,32 +2,20 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace SacramentMeetingPlanner.Migrations
 {
     [DbContext(typeof(SacramentMeetingPlannerContext))]
-    partial class SacramentMeetingPlannerContextModelSnapshot : ModelSnapshot
+    [Migration("20211202201749_SpellingOnOpeningPrayer")]
+    partial class SpellingOnOpeningPrayer
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.0");
-
-            modelBuilder.Entity("SacramentMeeting.Models.BishopricMember", b =>
-                {
-                    b.Property<int>("BishopricMemberId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("BishopricMemberName")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("BishopricMemberId");
-
-                    b.ToTable("BishopricMember");
-                });
 
             modelBuilder.Entity("SacramentMeeting.Models.Hymn", b =>
                 {
@@ -52,8 +40,8 @@ namespace SacramentMeetingPlanner.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("ClosingHymnId")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("ClosingHymn")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ClosingPrayer")
                         .HasColumnType("TEXT");
@@ -64,25 +52,21 @@ namespace SacramentMeetingPlanner.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("HymnId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("MusicNumber")
                         .HasColumnType("TEXT");
-
-                    b.Property<int>("OpeningHymnId")
-                        .HasColumnType("INTEGER");
 
                     b.Property<string>("OpeningPrayer")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("SacramentHymnId")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("SacramentHymn")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("SacramentPlanId");
 
-                    b.HasIndex("ClosingHymnId");
-
-                    b.HasIndex("OpeningHymnId");
-
-                    b.HasIndex("SacramentHymnId");
+                    b.HasIndex("HymnId");
 
                     b.ToTable("SacramentPlan");
                 });
@@ -111,29 +95,13 @@ namespace SacramentMeetingPlanner.Migrations
 
             modelBuilder.Entity("SacramentMeeting.Models.SacramentPlan", b =>
                 {
-                    b.HasOne("SacramentMeeting.Models.Hymn", "ClosingHymn")
-                        .WithMany()
-                        .HasForeignKey("ClosingHymnId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("SacramentMeeting.Models.Hymn", "OpeningHymn")
                         .WithMany()
-                        .HasForeignKey("OpeningHymnId")
+                        .HasForeignKey("HymnId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("SacramentMeeting.Models.Hymn", "SacramentHymn")
-                        .WithMany()
-                        .HasForeignKey("SacramentHymnId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ClosingHymn");
 
                     b.Navigation("OpeningHymn");
-
-                    b.Navigation("SacramentHymn");
                 });
 
             modelBuilder.Entity("SacramentMeeting.Models.Speaker", b =>
