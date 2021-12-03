@@ -22,10 +22,10 @@
             @Html.DisplayNameFor(model => model.OpeningHymn)
         </dt>
         <dd class="right">
-            @Html.DisplayFor(model => model.OpeningHymn)
+            @Html.DisplayFor(model => model.OpeningHymn.HymnNumber)
         </dd>
     </div>
-    <p class="hymn-name">hymn name</p>
+    <p class="hymn-name">@Html.DisplayFor(model => model.OpeningHymn.HymnName)</p>
     <div class="program-row">
         <dt class="left">
             @Html.DisplayNameFor(model => model.OpeningPrayer)
@@ -37,7 +37,7 @@
     <p class="program-center">Ward and Stake Business</p>
     <div class="program-row">
         <dt class="left">
-            @Html.DisplayNameFor(model => model.SacramentHymnId)
+            @Html.DisplayNameFor(model => model.SacramentHymn)
         </dt>
         <dd class="right">
             @Html.DisplayFor(model => model.SacramentHymn.HymnNumber)
@@ -49,9 +49,9 @@
     <p class="program-center">Administration of the Sacrament</p>
     @if (Model.Speakers.Count > 0)
     {
-    <div class="program-row">
-        <dt class="left">Talks</dt>
-    </div>
+        <div class="program-row">
+            <dt class="left">Talks</dt>
+        </div>
         @foreach (var item in Model.Speakers)
         {
             <div class="program-row">
@@ -64,19 +64,21 @@
             </div>
         }
     }
-    @if (Model.MusicNumber != "null")
+    @if (Model.IntermediateHymn != null)
     {
         <div class="program-row">
             <dt class="left">
 
-                @Html.DisplayNameFor(model => model.MusicNumber)
+                @Html.DisplayNameFor(model => model.IntermediateHymn)
             </dt>
             <dd class="right">
-                @Html.DisplayFor(model => model.MusicNumber)
+                @Html.DisplayFor(model => model.IntermediateHymn.HymnNumber)
             </dd>
         </div>
-    <p class="hymn-name">hymn name</p>
-    } else {
+        <p class="hymn-name">@Html.DisplayFor(model => model.IntermediateHymn.HymnName)</p>
+    }
+    else
+    {
         <p class="program-center">Bearing of Testimonies</p>
     }
 
@@ -85,9 +87,9 @@
             @Html.DisplayNameFor(model => model.ClosingHymn)
         </dt>
         <dd class="right">
-            @Html.DisplayFor(model => model.ClosingHymn)
+            @Html.DisplayFor(model => model.ClosingHymn.HymnNumber)
     </div>
-    <p class="hymn-name">hymn name</p>
+    <p class="hymn-name">@Html.DisplayFor(model => model.ClosingHymn.HymnName)</p>
     <div class="program-row">
         <dt class="left">
             @Html.DisplayNameFor(model => model.ClosingPrayer)

@@ -46,6 +46,9 @@ namespace SacramentMeetingPlanner.Controllers
 
             var sacramentPlan = await _context.SacramentPlan
                 .Include(s => s.Speakers)
+                .Include(s => s.OpeningHymn)
+                .Include(s => s.SacramentHymn)
+                .Include(s => s.ClosingHymn)
                 .FirstOrDefaultAsync(m => m.SacramentPlanId == id);
             if (sacramentPlan == null)
             {
@@ -68,7 +71,7 @@ namespace SacramentMeetingPlanner.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("SacramentPlanId,Date,BishopricMemberId,OpeningHymnId,ClosingHymnId,SacramentHymnId,MusicNumber,OpeningPrayer,ClosingPrayer, SpeakerName, Topic")]
+        public async Task<IActionResult> Create([Bind("SacramentPlanId,Date,BishopricMemberId,OpeningHymnId,ClosingHymnId,SacramentHymnId,IntermediateHymnId,OpeningPrayer,ClosingPrayer, SpeakerName, Topic")]
          SacramentPlan sacramentPlan, string[] SpeakerName, string[] Topic)
         {
             sacramentPlan.Speakers = new List<Speaker>();
@@ -102,7 +105,7 @@ namespace SacramentMeetingPlanner.Controllers
         {
             ViewData["HymnId"] = new SelectList(_context.Set<Hymn>(), "HymnId", "HymnName");
             ViewData["BishopricMemberId"] = new SelectList(_context.Set<BishopricMember>(), "BishopricMemberId", "BishopricMemberName");
-          
+
             if (id == null)
             {
                 return NotFound();
@@ -113,7 +116,7 @@ namespace SacramentMeetingPlanner.Controllers
             {
                 return NotFound();
             }
-            
+
             return View(sacramentPlan);
         }
 
