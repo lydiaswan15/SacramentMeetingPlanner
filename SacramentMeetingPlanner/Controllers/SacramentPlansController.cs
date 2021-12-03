@@ -100,6 +100,9 @@ namespace SacramentMeetingPlanner.Controllers
         // GET: SacramentPlans/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            ViewData["HymnId"] = new SelectList(_context.Set<Hymn>(), "HymnId", "HymnName");
+            ViewData["BishopricMemberId"] = new SelectList(_context.Set<BishopricMember>(), "BishopricMemberId", "BishopricMemberName");
+          
             if (id == null)
             {
                 return NotFound();
@@ -110,6 +113,7 @@ namespace SacramentMeetingPlanner.Controllers
             {
                 return NotFound();
             }
+            
             return View(sacramentPlan);
         }
 

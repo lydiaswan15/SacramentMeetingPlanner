@@ -1,5 +1,14 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
+@import url('https://fonts.googleapis.com/css2?family=Donegal+One&family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Schoolbell&family=Zen+Antique+Soft&display=swap');
+
+h1, h2, h3 {
+  font-family: "Zen Antique Soft", Garamond, serif;
+}
+
+body {
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+}
 .program-container {
   max-width: 750px;
   padding: 10px;
