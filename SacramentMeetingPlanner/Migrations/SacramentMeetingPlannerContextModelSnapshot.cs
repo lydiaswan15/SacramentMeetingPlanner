@@ -52,13 +52,13 @@ namespace SacramentMeetingPlanner.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("BishopricMemberId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("ClosingHymnId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("ClosingPrayer")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("ConductingLeader")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("Date")
@@ -77,6 +77,8 @@ namespace SacramentMeetingPlanner.Migrations
                         .HasColumnType("INTEGER");
 
                     b.HasKey("SacramentPlanId");
+
+                    b.HasIndex("BishopricMemberId");
 
                     b.HasIndex("ClosingHymnId");
 
@@ -111,6 +113,12 @@ namespace SacramentMeetingPlanner.Migrations
 
             modelBuilder.Entity("SacramentMeeting.Models.SacramentPlan", b =>
                 {
+                    b.HasOne("SacramentMeeting.Models.BishopricMember", "BishopricMember")
+                        .WithMany()
+                        .HasForeignKey("BishopricMemberId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("SacramentMeeting.Models.Hymn", "ClosingHymn")
                         .WithMany()
                         .HasForeignKey("ClosingHymnId")
@@ -128,6 +136,8 @@ namespace SacramentMeetingPlanner.Migrations
                         .HasForeignKey("SacramentHymnId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("BishopricMember");
 
                     b.Navigation("ClosingHymn");
 
