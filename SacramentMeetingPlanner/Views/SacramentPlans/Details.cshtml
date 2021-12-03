@@ -37,39 +37,46 @@
     <p class="program-center">Ward and Stake Business</p>
     <div class="program-row">
         <dt class="left">
-            @Html.DisplayNameFor(model => model.SacramentHymn)
+            @Html.DisplayNameFor(model => model.SacramentHymnId)
         </dt>
         <dd class="right">
-            @Html.DisplayFor(model => model.SacramentHymn)
+            @Html.DisplayFor(model => model.SacramentHymn.HymnNumber)
         </dd>
     </div>
-    <p class="hymn-name">hymn name</p>
+    <p class="hymn-name">
+        @Html.DisplayFor(model => model.SacramentHymn.HymnName)
+    </p>
     <p class="program-center">Administration of the Sacrament</p>
+    @if (Model.Speakers.Count > 0)
+    {
     <div class="program-row">
         <dt class="left">Talks</dt>
     </div>
-
-    @foreach (var item in Model.Speakers)
-    {
-    <div class="program-row">
-        <dt class="left topic-name">
-            @Html.DisplayFor(modelItem => item.Topic)
-        </dt>
-        <dd class="right">
-            @Html.DisplayFor(modelItem => item.Name)
-        </dd>
-    </div>
+        @foreach (var item in Model.Speakers)
+        {
+            <div class="program-row">
+                <dt class="left topic-name">
+                    @Html.DisplayFor(modelItem => item.Topic)
+                </dt>
+                <dd class="right">
+                    @Html.DisplayFor(modelItem => item.Name)
+                </dd>
+            </div>
+        }
     }
-    @* Check if intermediate hymn exists *@
-    <div class="program-row">
-        <dt class="left">
+    @if (Model.MusicNumber != "null")
+    {
+        <div class="program-row">
+            <dt class="left">
 
-            @Html.DisplayNameFor(model => model.MusicNumber)
-        </dt>
-        <dd class="right">
-            @Html.DisplayFor(model => model.MusicNumber)
-        </dd>
-    </div>
+                @Html.DisplayNameFor(model => model.MusicNumber)
+            </dt>
+            <dd class="right">
+                @Html.DisplayFor(model => model.MusicNumber)
+            </dd>
+        </div>
+    }
+
     <p class="hymn-name">hymn name</p>
     <div class="program-row">
         <dt class="left">

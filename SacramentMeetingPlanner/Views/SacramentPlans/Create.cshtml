@@ -55,7 +55,9 @@
                 Speaker</button>
             <div class="form-group">
                 <label asp-for="MusicNumber" class="control-label"></label>
-                <input asp-for="MusicNumber" class="form-control" />
+                <select asp-for="MusicNumber" class="form-control" asp-items="ViewBag.HymnId">
+                    <option value="null">Please Select</option>
+                </select>
                 <span asp-validation-for="MusicNumber" class="text-danger"></span>
             </div>
 

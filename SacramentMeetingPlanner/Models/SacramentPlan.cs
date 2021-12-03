@@ -28,7 +28,6 @@ namespace SacramentMeeting.Models
         public int ClosingHymnId { get; set; }
         public Hymn ClosingHymn { get; set; }
         [Display(Name = "Sacrament Hymn")]
-
         public int SacramentHymnId { get; set; }
         public Hymn SacramentHymn { get; set; }
         [Display(Name = "Intermediate Hymn")]
