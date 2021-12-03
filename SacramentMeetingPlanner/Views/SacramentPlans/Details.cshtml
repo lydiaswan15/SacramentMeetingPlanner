@@ -18,7 +18,7 @@
         </div> *@
 
     <div class="program-row">
-        <dt class=left">
+        <dt class="left">
             @Html.DisplayNameFor(model => model.OpeningHymn)
         </dt>
         <dd class="right">
@@ -89,13 +89,12 @@
     </div>
 
 </dl>
-</div>
+
 <div class="program-center mt-6">
     <a asp-action="Edit" asp-route-id="@Model.SacramentPlanId">Edit</a> |
     <a asp-action="Delete" asp-route-id="@Model.SacramentPlanId">Delete</a> |
     <a asp-action="Index">Back to List</a>
 </div>
-
 @section Scripts {
 @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
