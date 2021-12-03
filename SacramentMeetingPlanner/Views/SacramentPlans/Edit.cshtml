@@ -18,35 +18,50 @@
                 <input asp-for="Date" class="form-control" />
                 <span asp-validation-for="Date" class="text-danger"></span>
             </div>
-            @* <div class="form-group">
-                <label asp-for="ConductingLeader" class="control-label"></label>
-                <input asp-for="ConductingLeader" class="form-control" />
-                <span asp-validation-for="ConductingLeader" class="text-danger"></span>
-                </div> *@
+            <div class="form-group">
+                <label asp-for="BishopricMember" class="control-label"></label>
+                <select asp-for="BishopricMemberId" class="form-control" asp-items="ViewBag.BishopricMemberId">
+                    <option value="null">Please Select</option>
+                </select>
+            </div>
+
             <div class="form-group">
                 <label asp-for="OpeningHymn" class="control-label"></label>
-                <input asp-for="OpeningHymn" class="form-control" />
-                <span asp-validation-for="OpeningHymn" class="text-danger"></span>
+                <select asp-for="OpeningHymnId" class="form-control" asp-items="ViewBag.HymnId">
+                    <option value="null">Please Select</option>
+                </select>
             </div>
-            <div class="form-group">
-                <label asp-for="ClosingHymn" class="control-label"></label>
-                <input asp-for="ClosingHymn" class="form-control" />
-                <span asp-validation-for="ClosingHymn" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SacramentHymn" class="control-label"></label>
-                <input asp-for="SacramentHymn" class="form-control" />
-                <span asp-validation-for="SacramentHymn" class="text-danger"></span>
-            </div>
-            @* <div class="form-group">
-                <label asp-for="MusicNumber" class="control-label"></label>
-                <input asp-for="MusicNumber" class="form-control" />
-                <span asp-validation-for="MusicNumber" class="text-danger"></span>
-                </div> *@
             <div class="form-group">
                 <label asp-for="OpeningPrayer" class="control-label"></label>
                 <input asp-for="OpeningPrayer" class="form-control" />
                 <span asp-validation-for="OpeningPrayer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SacramentHymn" class="control-label"></label>
+                <select asp-for="SacramentHymnId" class="form-control" asp-items="ViewBag.HymnId">
+                    <option value="null">Please Select</option>
+                </select>
+            </div>
+            <label for="speakerForm" class="control-label">Speakers</label>
+            <div id="speakerForm">
+
+            </div>
+
+            <button type="button" id="add-speaker-btn" class=" btn btn-secondary form-control mb-2">+ Add
+                Speaker</button>
+            <div class="form-group">
+                <label asp-for="IntermediateHymn" class="control-label"></label>
+                <select asp-for="IntermediateHymnId" class="form-control" asp-items="ViewBag.HymnId">
+                    <option value="null">Please Select</option>
+                </select>
+                <span asp-validation-for="IntermediateHymn" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ClosingHymn" class="control-label"></label>
+                <select asp-for="ClosingHymnId" class="form-control" asp-items="ViewBag.HymnId">
+                    <option value="null">Please Select</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="ClosingPrayer" class="control-label"></label>
@@ -67,4 +82,35 @@
 
 @section Scripts {
 @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<script>
+    const speakerFormItem = `
+        <div class="form-group border border-secondary padding">
+            <label class="control-label" for="SpeakerName">Name</label>
+            <input type="text" name="speakerName" class="form-control"/>
+            <label class="control-label" for="topic">Topic</label>
+            <input type="text" name="topic" class="form-control"/>
+        </div>
+        `
+
+    document.querySelector('#add-speaker-btn').addEventListener('click', (e) => {
+        e.preventDefault();
+        const speakerForm = document.querySelector('#speakerForm')
+        let values = [];
+        document.querySelectorAll('#speakerForm input').forEach(input => {
+            let value = input.value;
+            values.push(value)
+        })
+        speakerForm.innerHTML += speakerFormItem;
+
+        document.querySelectorAll('#speakerForm input').forEach((input, index) => {
+            let length = document.querySelectorAll('#speakerForm input').length
+            if (values[index]) {
+                input.value = values[index]
+            } else {
+                input.value = '';
+            }
+        })
+
+    })
+</script>
 }

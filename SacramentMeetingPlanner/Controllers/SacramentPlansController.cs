@@ -71,7 +71,7 @@ namespace SacramentMeetingPlanner.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("SacramentPlanId,Date,BishopricMemberId,OpeningHymnId,ClosingHymnId,SacramentHymnId,IntermediateHymnId,OpeningPrayer,ClosingPrayer, SpeakerName, Topic")]
+        public async Task<IActionResult> Create([Bind("SacramentPlanId,Date,BishopricMemberId,OpeningHymnId,ClosingHymnId,SacramentHymnId,MusicNumber,OpeningPrayer,ClosingPrayer, SpeakerName, Topic")]
          SacramentPlan sacramentPlan, string[] SpeakerName, string[] Topic)
         {
             sacramentPlan.Speakers = new List<Speaker>();
@@ -125,7 +125,8 @@ namespace SacramentMeetingPlanner.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("SacramentPlanId,Date,ConductingLeader,OpenningHymn,ClosingHymn,SacramentHymn,MusicNumber,OpenningPrayer,ClosingPrayer,SpeakerSubject")] SacramentPlan sacramentPlan)
+        public async Task<IActionResult> Edit(int id, [Bind("SacramentPlanId,Date,BishopricMemberId,OpeningHymnId,ClosingHymnId,SacramentHymnId,IntermediateHymnId,OpeningPrayer,ClosingPrayer,SpeakerSubject")]
+        SacramentPlan sacramentPlan)
         {
             if (id != sacramentPlan.SacramentPlanId)
             {
