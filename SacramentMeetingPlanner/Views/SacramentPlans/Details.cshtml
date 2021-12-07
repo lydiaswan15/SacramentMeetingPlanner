@@ -55,12 +55,12 @@
         @foreach (var item in Model.Speakers)
         {
             <div class="program-row">
-                <dt class="left topic-name">
-                    @Html.DisplayFor(modelItem => item.Topic)
-                </dt>
-                <dd class="right">
+                <dd class="left speaker-name">
                     @Html.DisplayFor(modelItem => item.Name)
                 </dd>
+                <dt class="right ">
+                    @Html.DisplayFor(modelItem => item.Topic)
+                </dt>
             </div>
         }
     }
