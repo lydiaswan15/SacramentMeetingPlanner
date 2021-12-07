@@ -27,6 +27,7 @@ body {
 
 .program-row .right {
   order: 3;
+  font-weight: normal;
 }
 
 .program-row::after {
@@ -58,14 +59,14 @@ body {
   content: "\"";
 }
 
-.topic-name {
+.speaker-name {
   font-weight: normal;
   font-style: italic;
   padding-left: 30px;
 }
 
-.padding{
-  padding: 10px;
+.speaker-topic{
+  padding-right: 30px;
 }
 
 a.navbar-brand {

@@ -33,22 +33,13 @@ namespace SacramentMeetingPlanner.Controllers
         public async Task<IActionResult> Details(int? id)
         {
 
-            // get speakers
-            // var speakers = await _context.Speaker
-            //     .Include(s => s.Name)
-            //     .Include(s => s.Topic)
-            //     .Where(SacramentPlanId = id);
-
-            // if (id == null)
-            // {
-            //     return NotFound();
-            // }
 
             var sacramentPlan = await _context.SacramentPlan
                 .Include(s => s.Speakers)
                 .Include(s => s.OpeningHymn)
                 .Include(s => s.SacramentHymn)
                 .Include(s => s.ClosingHymn)
+                .Include(s => s.BishopricMember)
                 .FirstOrDefaultAsync(m => m.SacramentPlanId == id);
             if (sacramentPlan == null)
             {
@@ -129,8 +120,25 @@ namespace SacramentMeetingPlanner.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("SacramentPlanId,Date,BishopricMemberId,OpeningHymnId,ClosingHymnId,SacramentHymnId,IntermediateHymnId,OpeningPrayer,ClosingPrayer,SpeakerSubject")]
-        SacramentPlan sacramentPlan)
+        SacramentPlan sacramentPlan, string[] SpeakerName, string[] Topic)
         {
+
+            sacramentPlan.Speakers = new List<Speaker>();
+
+            foreach (var speaker in SpeakerName)
+            {
+                var index = 0;
+                var addSpeaker = new Speaker
+                {
+                    Name = speaker,
+                    Topic = Topic[index],
+                    SacramentPlanId = sacramentPlan.SacramentPlanId
+                };
+
+                index++;
+                sacramentPlan.Speakers.Add(addSpeaker);
+            }
+
             if (id != sacramentPlan.SacramentPlanId)
             {
                 return NotFound();
@@ -168,6 +176,12 @@ namespace SacramentMeetingPlanner.Controllers
             }
 
             var sacramentPlan = await _context.SacramentPlan
+                .Include(s => s.Speakers)
+                .Include(s => s.OpeningHymn)
+                .Include(s => s.SacramentHymn)
+                .Include(s => s.ClosingHymn)
+                .Include(s => s.BishopricMember)
+
                 .FirstOrDefaultAsync(m => m.SacramentPlanId == id);
             if (sacramentPlan == null)
             {
