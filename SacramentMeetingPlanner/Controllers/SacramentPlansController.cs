@@ -71,8 +71,9 @@ namespace SacramentMeetingPlanner.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("SacramentPlanId,Date,BishopricMemberId,OpeningHymnId,ClosingHymnId,SacramentHymnId,MusicNumber,OpeningPrayer,ClosingPrayer")]
+        public async Task<IActionResult> Create([Bind("SacramentPlanId,Date,BishopricMemberId,OpeningHymnId,ClosingHymnId,SacramentHymnId,IntermediateHymnId,OpeningPrayer,ClosingPrayer")]
          SacramentPlan sacramentPlan, string[] SpeakerName, string[] Topic)
+
         {
             sacramentPlan.Speakers = new List<Speaker>();
 
