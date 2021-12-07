@@ -162,7 +162,8 @@ namespace SacramentMeetingPlanner.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                string url = "/SacramentPlans/Details/" + sacramentPlan.SacramentPlanId;
+                return Redirect(url);
             }
             return View(sacramentPlan);
         }

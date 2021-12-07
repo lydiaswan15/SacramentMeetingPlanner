@@ -5,9 +5,46 @@ for details on configuring this project to bundle and minify static web assets. 
 h1, h2, h3 {
   font-family: "Zen Antique Soft", Garamond, serif;
 }
+h1 {
+  padding-top: 20px;
+  color: #003168;
+}
+
+.btn-primary {
+  background-color: #003168;
+}
 
 body {
   font-family: "Lato", Arial, Helvetica, sans-serif;
+}
+
+.landing-heading{
+  text-shadow:2px 2px 4px rgba(0, 0, 0, .05);
+  color: #003168;
+  padding-top: 20px;
+}
+
+nav.navbar {
+  background-color: #003168;
+}
+
+nav.navbar * {
+  color: white;
+}
+
+.home {
+  background-image: url('../images/church_building_whittaker.jpeg');
+  height: 90vh;
+  background-position: bottom 0 right 50%; 
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.no-padding{
+  padding-right: 0;
+  padding-left: 0;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .padding {
