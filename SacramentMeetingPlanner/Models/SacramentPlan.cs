@@ -20,9 +20,8 @@ namespace SacramentMeeting.Models
         [Display(Name = "Conducting")]
         public int BishopricMemberId { get; set; }
         public BishopricMember BishopricMember { get; set; }
-        [Display(Name = "Opening Hymn")]
-
         public int OpeningHymnId { get; set; }
+        [Display(Name = "Opening Hymn")]
         public Hymn OpeningHymn { get; set; }
         [Display(Name = "Closing Hymn")]
         public int ClosingHymnId { get; set; }
@@ -31,7 +30,6 @@ namespace SacramentMeeting.Models
         public int SacramentHymnId { get; set; }
         public Hymn SacramentHymn { get; set; }
         [Display(Name = "Intermediate Hymn")]
-
         public int IntermediateHymnId { get; set; }
         public Hymn? IntermediateHymn { get; set; }
         [Display(Name = "Opening Prayer")]
