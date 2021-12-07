@@ -90,6 +90,7 @@
             <input type="text" name="speakerName" class="form-control"/>
             <label class="control-label" for="topic">Topic</label>
             <input type="text" name="topic" class="form-control"/>
+            <p class="delete delete-speaker">Delete Speaker</p>
         </div>
         `
 
@@ -111,7 +112,18 @@
                 input.value = '';
             }
         })
-
+        addDeleteListeners();
     })
+
+    function addDeleteListeners() {
+    Array.from(document.getElementsByClassName('delete-speaker')).forEach(element => {
+        element.addEventListener('click', deleteSpeaker)
+    })
+    }
+
+    function deleteSpeaker(element) {
+        console.log('deleting')
+            element.target.parentNode.remove();
+    }
 </script>
 }

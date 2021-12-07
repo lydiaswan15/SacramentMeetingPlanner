@@ -9,6 +9,19 @@ h1, h2, h3 {
 body {
   font-family: "Lato", Arial, Helvetica, sans-serif;
 }
+
+.padding {
+  padding: 1em;
+}
+
+.delete {
+  color: red;
+}
+
+.delete:hover {
+  cursor: pointer;
+}
+
 .program-container {
   max-width: 750px;
   padding: 10px;
