@@ -174,6 +174,12 @@ namespace SacramentMeetingPlanner.Controllers
             }
 
             var sacramentPlan = await _context.SacramentPlan
+                .Include(s => s.Speakers)
+                .Include(s => s.OpeningHymn)
+                .Include(s => s.SacramentHymn)
+                .Include(s => s.ClosingHymn)
+                .Include(s => s.BishopricMember)
+
                 .FirstOrDefaultAsync(m => m.SacramentPlanId == id);
             if (sacramentPlan == null)
             {
