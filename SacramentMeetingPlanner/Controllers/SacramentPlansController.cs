@@ -33,22 +33,13 @@ namespace SacramentMeetingPlanner.Controllers
         public async Task<IActionResult> Details(int? id)
         {
 
-            // get speakers
-            // var speakers = await _context.Speaker
-            //     .Include(s => s.Name)
-            //     .Include(s => s.Topic)
-            //     .Where(SacramentPlanId = id);
-
-            // if (id == null)
-            // {
-            //     return NotFound();
-            // }
 
             var sacramentPlan = await _context.SacramentPlan
                 .Include(s => s.Speakers)
                 .Include(s => s.OpeningHymn)
                 .Include(s => s.SacramentHymn)
                 .Include(s => s.ClosingHymn)
+                .Include(s => s.BishopricMember)
                 .FirstOrDefaultAsync(m => m.SacramentPlanId == id);
             if (sacramentPlan == null)
             {
