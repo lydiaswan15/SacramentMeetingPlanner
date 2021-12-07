@@ -44,7 +44,14 @@
             </div>
             <label for="speakerForm" class="control-label">Speakers</label>
             <div id="speakerForm">
-
+                @foreach (var item in Model.Speakers) {
+                    <div class="form-group border border-secondary padding">
+                        <label class="control-label" for="SpeakerName">Name</label>
+                        <input type="text" name="speakerName" class="form-control" value="@item.Name"/>
+                        <label class="control-label" for="topic">Topic</label>
+                        <input type="text" name="topic" class="form-control" value="@item.Topic"/>
+                    </div>
+                }
             </div>
 
             <button type="button" id="add-speaker-btn" class=" btn btn-secondary form-control mb-2">+ Add

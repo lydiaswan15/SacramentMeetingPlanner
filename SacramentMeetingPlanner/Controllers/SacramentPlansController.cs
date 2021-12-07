@@ -112,7 +112,9 @@ namespace SacramentMeetingPlanner.Controllers
                 return NotFound();
             }
 
-            var sacramentPlan = await _context.SacramentPlan.FindAsync(id);
+            var sacramentPlan = await _context.SacramentPlan
+                .Include(s => s.Speakers)
+                .FirstOrDefaultAsync(s => s.SacramentPlanId == id);
             if (sacramentPlan == null)
             {
                 return NotFound();

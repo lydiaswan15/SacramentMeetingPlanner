@@ -30,8 +30,8 @@ namespace SacramentMeeting.Models
         public int SacramentHymnId { get; set; }
         public Hymn SacramentHymn { get; set; }
         [Display(Name = "Intermediate Hymn")]
-        public int IntermediateHymnId { get; set; }
-        public Hymn? IntermediateHymn { get; set; }
+        public int? IntermediateHymnId { get; set; }
+        public Hymn IntermediateHymn { get; set; }
         [Display(Name = "Opening Prayer")]
         public string OpeningPrayer { get; set; }
         [Display(Name = "Closing Prayer")]
