@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using SacramentMeeting.Models;
 
 namespace SacramentMeetingPlanner.Controllers
+
 {
     public class SacramentPlansController : Controller
     {
@@ -119,15 +120,21 @@ namespace SacramentMeetingPlanner.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("SacramentPlanId,Date,BishopricMemberId,OpeningHymnId,ClosingHymnId,SacramentHymnId,IntermediateHymnId,OpeningPrayer,ClosingPrayer,SpeakerSubject")]
+        public async Task<IActionResult> Edit(int id, [Bind("SacramentPlanId,Date,BishopricMemberId,OpeningHymnId,ClosingHymnId,SacramentHymnId,IntermediateHymnId,OpeningPrayer,ClosingPrayer,SpeakerSubject,Speakers")]
         SacramentPlan sacramentPlan, string[] SpeakerName, string[] Topic)
         {
+            sacramentPlan = await _context.SacramentPlan
+            .Include(s => s.Speakers)
+            .FirstOrDefaultAsync(s => s.SacramentPlanId == id);
+
+            sacramentPlan.Speakers.Clear();
 
             sacramentPlan.Speakers = new List<Speaker>();
 
+            var index = 0;
+
             foreach (var speaker in SpeakerName)
             {
-                var index = 0;
                 var addSpeaker = new Speaker
                 {
                     Name = speaker,
@@ -168,6 +175,8 @@ namespace SacramentMeetingPlanner.Controllers
             return View(sacramentPlan);
         }
 
+
+
         // GET: SacramentPlans/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -192,6 +201,7 @@ namespace SacramentMeetingPlanner.Controllers
             return View(sacramentPlan);
         }
 
+
         // POST: SacramentPlans/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -202,7 +212,6 @@ namespace SacramentMeetingPlanner.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
         private bool SacramentPlanExists(int id)
         {
             return _context.SacramentPlan.Any(e => e.SacramentPlanId == id);

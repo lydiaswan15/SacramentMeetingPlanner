@@ -49,7 +49,7 @@
                     <div class="form-group border border-secondary padding">
                         <label class="control-label" for="SpeakerName">Name</label>
                         <input type="text" name="speakerName" class="form-control" value="@item.Name" />
-                        <label class="control-label" for="topic">Topic</label>
+                        <label class="control-label" for="Topic">Topic</label>
                         <input type="text" name="topic" class="form-control" value="@item.Topic" />
                         <p class="delete delete-speaker">Delete Speaker</p>
                     </div>
@@ -96,7 +96,7 @@
         <div class="form-group border border-secondary padding">
             <label class="control-label" for="SpeakerName">Name</label>
             <input type="text" name="speakerName" class="form-control"/>
-            <label class="control-label" for="topic">Topic</label>
+            <label class="control-label" for="Topic">Topic</label>
             <input type="text" name="topic" class="form-control"/>
             <p class="delete delete-speaker">Delete Speaker</p>
         </div>
@@ -125,14 +125,14 @@
 
     //delete speaker
     function addDeleteListeners() {
-    Array.from(document.getElementsByClassName('delete-speaker')).forEach(element => {
-        element.addEventListener('click', deleteSpeaker)
-    })
+        Array.from(document.getElementsByClassName('delete-speaker')).forEach(element => {
+            element.addEventListener('click', deleteSpeaker)
+        })
     }
 
     function deleteSpeaker(element) {
         console.log('deleting')
-            element.target.parentNode.remove();
+        element.target.parentNode.remove();
     }
 
     addDeleteListeners();
