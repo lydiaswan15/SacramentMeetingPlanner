@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "/Users/lydiaswanson/.dotnet/store/|arch|/|tfm|",
-      "/Users/lydiaswanson/.nuget/packages"
+      "/Users/4cibe/.dotnet/store/|arch|/|tfm|",
+      "/Users/4cibe/.nuget/packages"
     ]
   }
 }

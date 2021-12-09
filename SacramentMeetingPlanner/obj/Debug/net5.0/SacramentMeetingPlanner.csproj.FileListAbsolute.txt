@@ -349,3 +349,4 @@
 /Users/lydiaswanson/Desktop/SacramentMeetingPlanner/SacramentMeetingPlanner/obj/Debug/net5.0/SacramentMeetingPlanner.pdb
 /Users/lydiaswanson/Desktop/SacramentMeetingPlanner/SacramentMeetingPlanner/obj/Debug/net5.0/SacramentMeetingPlanner.genruntimeconfig.cache
 /Users/lydiaswanson/Desktop/SacramentMeetingPlanner/SacramentMeetingPlanner/obj/Debug/net5.0/Razor/Views/SacramentPlans/RemoveSpeaker.cshtml.g.cs
+/Users/4cibe/Desktop/School/fall2021/CIT365-.NET/week12/SacramentMeetingPlanner/SacramentMeetingPlanner/obj/Debug/net5.0/Razor/Views/SacramentPlans/RemoveSpeaker.cshtml.g.cs

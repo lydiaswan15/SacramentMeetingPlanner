@@ -64,6 +64,10 @@
             </div>
         }
     }
+    else
+    {
+        <p class="program-center">Bearing of Testimonies</p>
+    }
     @if (Model.IntermediateHymn != null)
     {
         <div class="program-row">
@@ -77,10 +81,7 @@
         </div>
         <p class="hymn-name">@Html.DisplayFor(model => model.IntermediateHymn.HymnName)</p>
     }
-    else
-    {
-        <p class="program-center">Bearing of Testimonies</p>
-    }
+    
 
     <div class="program-row">
         <dt class="left">
