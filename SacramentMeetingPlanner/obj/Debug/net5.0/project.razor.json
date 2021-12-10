@@ -1,5 +1,5 @@
 {
-  "FilePath": "/Users/4cibe/Desktop/School/fall2021/CIT365-.NET/week12/SacramentMeetingPlanner/SacramentMeetingPlanner/SacramentMeetingPlanner.csproj",
+  "FilePath": "/Users/lydiaswanson/Desktop/SacramentMeetingPlanner/SacramentMeetingPlanner/SacramentMeetingPlanner.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "5.0",
@@ -15619,93 +15619,93 @@
   "RootNamespace": "SacramentMeetingPlanner",
   "Documents": [
     {
-      "FilePath": "/Users/4cibe/Desktop/School/fall2021/CIT365-.NET/week12/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/Speakers/Edit.cshtml",
-      "TargetPath": "Views\\Speakers\\Edit.cshtml",
+      "FilePath": "/Users/lydiaswanson/Desktop/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/Shared/_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/4cibe/Desktop/School/fall2021/CIT365-.NET/week12/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/Speakers/Delete.cshtml",
-      "TargetPath": "Views\\Speakers\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/4cibe/Desktop/School/fall2021/CIT365-.NET/week12/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/Home/Index.cshtml",
-      "TargetPath": "Views\\Home\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/4cibe/Desktop/School/fall2021/CIT365-.NET/week12/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/4cibe/Desktop/School/fall2021/CIT365-.NET/week12/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/Speakers/Index.cshtml",
+      "FilePath": "/Users/lydiaswanson/Desktop/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/Speakers/Index.cshtml",
       "TargetPath": "Views\\Speakers\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/4cibe/Desktop/School/fall2021/CIT365-.NET/week12/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/SacramentPlans/Details.cshtml",
+      "FilePath": "/Users/lydiaswanson/Desktop/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/SacramentPlans/Details.cshtml",
       "TargetPath": "Views\\SacramentPlans\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/4cibe/Desktop/School/fall2021/CIT365-.NET/week12/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/Speakers/Create.cshtml",
-      "TargetPath": "Views\\Speakers\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/4cibe/Desktop/School/fall2021/CIT365-.NET/week12/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/Speakers/Details.cshtml",
-      "TargetPath": "Views\\Speakers\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/4cibe/Desktop/School/fall2021/CIT365-.NET/week12/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/Shared/Error.cshtml",
-      "TargetPath": "Views\\Shared\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/4cibe/Desktop/School/fall2021/CIT365-.NET/week12/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/SacramentPlans/Index.cshtml",
-      "TargetPath": "Views\\SacramentPlans\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/4cibe/Desktop/School/fall2021/CIT365-.NET/week12/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/SacramentPlans/Edit.cshtml",
-      "TargetPath": "Views\\SacramentPlans\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/4cibe/Desktop/School/fall2021/CIT365-.NET/week12/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/4cibe/Desktop/School/fall2021/CIT365-.NET/week12/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/Shared/_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/4cibe/Desktop/School/fall2021/CIT365-.NET/week12/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/SacramentPlans/RemoveSpeaker.cshtml",
-      "TargetPath": "Views\\SacramentPlans\\RemoveSpeaker.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/4cibe/Desktop/School/fall2021/CIT365-.NET/week12/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/SacramentPlans/Create.cshtml",
-      "TargetPath": "Views\\SacramentPlans\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/4cibe/Desktop/School/fall2021/CIT365-.NET/week12/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/SacramentPlans/Delete.cshtml",
+      "FilePath": "/Users/lydiaswanson/Desktop/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/SacramentPlans/Delete.cshtml",
       "TargetPath": "Views\\SacramentPlans\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/4cibe/Desktop/School/fall2021/CIT365-.NET/week12/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/Home/Privacy.cshtml",
+      "FilePath": "/Users/lydiaswanson/Desktop/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/SacramentPlans/Create.cshtml",
+      "TargetPath": "Views\\SacramentPlans\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/lydiaswanson/Desktop/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/Speakers/Details.cshtml",
+      "TargetPath": "Views\\Speakers\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/lydiaswanson/Desktop/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/SacramentPlans/Index.cshtml",
+      "TargetPath": "Views\\SacramentPlans\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/lydiaswanson/Desktop/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/Speakers/Create.cshtml",
+      "TargetPath": "Views\\Speakers\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/lydiaswanson/Desktop/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/Shared/Error.cshtml",
+      "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/lydiaswanson/Desktop/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/lydiaswanson/Desktop/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/Home/Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/lydiaswanson/Desktop/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/lydiaswanson/Desktop/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/SacramentPlans/RemoveSpeaker.cshtml",
+      "TargetPath": "Views\\SacramentPlans\\RemoveSpeaker.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/lydiaswanson/Desktop/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/Shared/_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/lydiaswanson/Desktop/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/Speakers/Edit.cshtml",
+      "TargetPath": "Views\\Speakers\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/lydiaswanson/Desktop/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/Home/Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/4cibe/Desktop/School/fall2021/CIT365-.NET/week12/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/Shared/_Layout.cshtml",
-      "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FilePath": "/Users/lydiaswanson/Desktop/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/SacramentPlans/Edit.cshtml",
+      "TargetPath": "Views\\SacramentPlans\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/lydiaswanson/Desktop/SacramentMeetingPlanner/SacramentMeetingPlanner/Views/Speakers/Delete.cshtml",
+      "TargetPath": "Views\\Speakers\\Delete.cshtml",
       "FileKind": "mvc"
     }
   ],
