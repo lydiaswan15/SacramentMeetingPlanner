@@ -120,84 +120,60 @@ namespace SacramentMeetingPlanner.Controllers
         // POST: SacramentPlans/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        // [HttpPost]
-        // [ValidateAntiForgeryToken]
-        // public async Task<IActionResult> Edit(int id, [Bind("SacramentPlanId,Date,BishopricMemberId,OpeningHymnId,ClosingHymnId,SacramentHymnId,IntermediateHymnId,OpeningPrayer,ClosingPrayer,SpeakerSubject,Speakers")]
-        // SacramentPlan sacramentPlan, string[] SpeakerName, string[] Topic)
-        // {
-        //     sacramentPlan = await _context.SacramentPlan
-        //     .Include(s => s.Speakers)
-        //     .FirstOrDefaultAsync(s => s.SacramentPlanId == id);
-
-        //     sacramentPlan.Speakers.Clear();
-
-        //     sacramentPlan.Speakers = new List<Speaker>();
-
-        //     var index = 0;
-
-        //     foreach (var speaker in SpeakerName)
-        //     {
-        //         var addSpeaker = new Speaker
-        //         {
-        //             Name = speaker,
-        //             Topic = Topic[index],
-        //             SacramentPlanId = sacramentPlan.SacramentPlanId
-        //         };
-
-        //         index++;
-        //         sacramentPlan.Speakers.Add(addSpeaker);
-        //     }
-
-        //     if (id != sacramentPlan.SacramentPlanId)
-        //     {
-        //         return NotFound();
-        //     }
-
-        //     if (ModelState.IsValid)
-        //     {
-        //         try
-        //         {
-        //             _context.Update(sacramentPlan);
-        //             await _context.SaveChangesAsync();
-        //         }
-        //         catch (DbUpdateConcurrencyException)
-        //         {
-        //             if (!SacramentPlanExists(sacramentPlan.SacramentPlanId))
-        //             {
-        //                 return NotFound();
-        //             }
-        //             else
-        //             {
-        //                 throw;
-        //             }
-        //         }
-        //         string url = "/SacramentPlans/Details/" + sacramentPlan.SacramentPlanId;
-        //         return Redirect(url);
-        //     }
-        //     return View(sacramentPlan);
-        // }
-
-
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, SacramentPlan SacramentPlan)
+        public async Task<IActionResult> Edit(int id, [Bind(
+        "SacramentPlanId, Date, BishopricMemberId, OpeningHymnId, OpeningPrayer, SacramentHymnId, IntermediateHymnId , ClosingHymnId, ClosingPrayer")]
+        SacramentPlan sacramentPlan, string[] SpeakerName, string[] Topic)
         {
-            if (id != SacramentPlan.SacramentPlanId)
+            if (id != sacramentPlan.SacramentPlanId)
             {
                 return NotFound();
             }
 
             if (ModelState.IsValid)
             {
+                var sacramentPlanToUpdate = await _context.SacramentPlan
+                .Include(s => s.Speakers)
+                .FirstOrDefaultAsync(s => s.SacramentPlanId == id);
+
+                _context.Entry(sacramentPlanToUpdate).CurrentValues.SetValues(sacramentPlan);
+
+                //Add a test for if sacrament plan is empty
+                foreach (var speaker in sacramentPlanToUpdate.Speakers)
+                {
+                    _context.Speaker.Remove(speaker);
+                }
+
+                _context.SaveChanges();
+                //sacramentPlan.Speakers.Remove();
+
+                sacramentPlanToUpdate.Speakers = new List<Speaker>();
+
+                var index = 0;
+
+                foreach (var speaker in SpeakerName)
+                {
+                    var addSpeaker = new Speaker
+                    {
+                        Name = speaker,
+                        Topic = Topic[index]
+                        //SacramentPlanId = sacramentPlanToUpdate.SacramentPlanId
+                    };
+
+                    index++;
+                    sacramentPlanToUpdate.Speakers.Add(addSpeaker);
+                }
+
                 try
                 {
-                    _context.Update(SacramentPlan);
+
+                    _context.Update(sacramentPlanToUpdate);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!SacramentPlanExists(SacramentPlan.SacramentPlanId))
+                    if (!SacramentPlanExists(sacramentPlanToUpdate.SacramentPlanId))
                     {
                         return NotFound();
                     }
@@ -206,12 +182,47 @@ namespace SacramentMeetingPlanner.Controllers
                         throw;
                     }
                 }
-                string url = "/SacramentPlans/Details/" + SacramentPlan.SacramentPlanId;
+                string url = "/SacramentPlans/Details/" + sacramentPlanToUpdate.SacramentPlanId;
                 return Redirect(url);
             }
-            ViewData["SacramentPlanId"] = new SelectList(_context.SacramentPlan, "SacramentPlanId", "SacramentPlanId", SacramentPlan.SacramentPlanId);
-            return View(SacramentPlan);
+            return View(sacramentPlan);
         }
+
+
+
+        // [HttpPost]
+        // [ValidateAntiForgeryToken]
+        // public async Task<IActionResult> Edit(int id, SacramentPlan SacramentPlan)
+        // {
+        //     if (id != SacramentPlan.SacramentPlanId)
+        //     {
+        //         return NotFound();
+        //     }
+
+        //     if (ModelState.IsValid)
+        //     {
+        //         try
+        //         {
+        //             _context.Update(SacramentPlan);
+        //             await _context.SaveChangesAsync();
+        //         }
+        //         catch (DbUpdateConcurrencyException)
+        //         {
+        //             if (!SacramentPlanExists(SacramentPlan.SacramentPlanId))
+        //             {
+        //                 return NotFound();
+        //             }
+        //             else
+        //             {
+        //                 throw;
+        //             }
+        //         }
+        //         string url = "/SacramentPlans/Details/" + SacramentPlan.SacramentPlanId;
+        //         return Redirect(url);
+        //     }
+        //     ViewData["SacramentPlanId"] = new SelectList(_context.SacramentPlan, "SacramentPlanId", "SacramentPlanId", SacramentPlan.SacramentPlanId);
+        //     return View(SacramentPlan);
+        // }
 
 
 
